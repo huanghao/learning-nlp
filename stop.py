@@ -1,5 +1,5 @@
 import string
-from itertools import ifilter
+from itertools import ifilter, imap
 
 from nltk.corpus import stopwords
 
@@ -13,6 +13,8 @@ norm = lambda i: not_a_stop_word(i) and not_a_punctuation(i)
 remove_stop_words = lambda text: ifilter(not_a_stop_word, text)
 remove_punctuation = lambda text: ifilter(not_a_punctuation, text)
 remove = lambda text: ifilter(norm, text)
+
+lower = lambda text: imap(str.lower, text)
 
 
 def test(text):
