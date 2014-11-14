@@ -18,17 +18,18 @@ top10 = lambda iterable: nlargest(iterable, 10)
 
 
 def test():
-    from book import text1
+    from book import text2 as text
     from ngram import bigram, trigram
+    from stop import remove
 
     print 'word count top10:'
-    print top10(count(text1))
+    print top10(count(remove(text)))
 
     print 'bigram top10:'
-    print top10(count(bigram(text1)))
+    print top10(count(bigram(remove(text))))
 
     print 'trigram top10:'
-    print top10(count(trigram(text1)))
+    print top10(count(trigram(remove(text))))
 
 
 if __name__ == '__main__':
