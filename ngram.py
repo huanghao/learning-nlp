@@ -3,7 +3,7 @@ def ngram(text, n):
     for word in text:
         grams.append(word)
         if len(grams) == n:
-            yield grams
+            yield tuple(grams)
             grams.pop(0)
 
 
