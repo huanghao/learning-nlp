@@ -56,3 +56,4 @@ target/
 venv/
 cache.sqlite
 log
+book.py
