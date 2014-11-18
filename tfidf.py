@@ -2,53 +2,39 @@ from __future__ import division
 from collections import defaultdict
 from heapq import nlargest
 import math
+import numpy as np
 
 
 def compute(texts):
     N = len(texts)
-    score = defaultdict(lambda : list([0] * N))
+    score = defaultdict(lambda : list([0.] * N))
     # word count
     for i, text in enumerate(texts):
         for word in text:
             score[word][i] += 1
+    words = score.keys()
 
-    # max word count in doc[i]
-    maxs = [0] * N
-    for word, counts in score.iteritems():
-        for i, cnt in enumerate(counts):
-            maxs[i] = max(maxs[i], cnt)
-
-    # standardize: tf
-    for word, counts in score.iteritems():
-        for i in range(N):
-            counts[i] /= maxs[i]
+    # normalize: tf
+    M = np.array(score.values())
+    for j in range(N):
+        M[:,j] /= max(M[:,j])
 
     # tf-idf
-    for word, tf in score.iteritems():
-        n = sum(bool(i) for i in tf)
+    for row in M:
+        n = sum(row != 0)
         idf = math.log(N / n, 2)
-        for i in range(N):
-            tf[i] *= idf
+        row *= idf
 
-    return score
-
-
-def to_docs(score):
-    N = len(score.itervalues().next())
-    docs = [list() for _ in range(N)]
-
-    for word, tfidf in score.iteritems():
-        for i, val in enumerate(tfidf):
-            if val > 0:
-                docs[i].append((val, word))
-    return docs
+    return M, words
 
 
-def topn(docs, titles, n):
-    for i, doc in enumerate(docs):
-        print 'Title:', titles[i]
-        for val, word in nlargest(n, doc):
-            print '%s: %s' % (word, val)
+def topn(M, words, titles, n):
+    for j in range(M.shape[1]):
+        doc = M[:,j]
+        print 'Title:', titles[j]
+        l = [(val, i) for i, val in enumerate(doc)]
+        for val, i in nlargest(n, l):
+            print '%s: %s' % (words[i], val)
         print
 
 
@@ -69,6 +55,5 @@ text9: The Man Who Was Thursday by G . K . Chesterton 1908
     texts = (text1, text2, text3, text4, text5, text6, text7, text8, text9)
     texts = [lower(remove_punctuation(t)) for t in texts]
 
-    score = compute(texts)
-    docs = to_docs(score)
-    topn(docs, titles, 5)
+    M, words = compute(texts)
+    topn(M, words, titles, 5)

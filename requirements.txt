@@ -6,3 +6,4 @@ mmseg
 pyquery
 requests
 requests-cache
+numpy
