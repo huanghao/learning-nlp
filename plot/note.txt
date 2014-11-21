@@ -1,0 +1,72 @@
+plot matlib Matrix Laboratory
+
+http://matplotlib.sourceforge.net
+http://matplotlib.sourceforge.net/gallery.html
+http://www.archive.org/details/scipy09_introTutorialDay2_1
+
+Matplotlib for Python Developers [Paperback]
+http://www.amazon.com/Matplotlib-Python-Developers-Sandro-Tosi/dp/1847197906/ref=sr_1_2?s=books&ie=UTF8&qid=1299596853&sr=1-2
+
+Free Plotting Software: Gnuplot, R, Visit, Root, Grace, Gretl, Scidavis, Plotutils, Matplotlib, Livegraph, Qtiplot, Graphcalc, Mayavi, Labplot [Paperback]
+http://www.amazon.com/Free-Plotting-Software-Plotutils-Matplotlib/dp/115519912X/ref=sr_1_1?s=books&ie=UTF8&qid=1299596782&sr=1-1
+-----------------------------------------------------------------------------------------
+ipython -pylab
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+scipy
+numpy
+pylab
+networkx
+sympy
+
+-----------------------------------------------------------------------------------------
+
+OO Style
+-----------------------------------------------------------------------------------------
+Output formats and backends
+
+hardcopy backends: file output formats
+user interface backend: display the image on screen
+	renderer: drawing
+	canvas: destination of the figure
+
+Anti-Grain Geometry(AGG) library
+-----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+1.
+现在北京有一套房子，价格200万，假设房价每年上涨10%，一个软件工程师每年固定能赚40万。如果他想买这套房子，不贷款，不涨工资，没有其他收入，每年不吃不喝不消费，那么他需要几年才能攒够钱买这套房子？
+A, 5年
+B, 7年
+C, 8年
+D, 9年
+E, 永远买不起
+
+2.递归栈
+
+3.小步提交
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
