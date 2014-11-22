@@ -7,3 +7,5 @@ pyquery
 requests
 requests-cache
 numpy
+matplotlib
+scipy
