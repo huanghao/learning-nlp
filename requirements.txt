@@ -9,3 +9,4 @@ requests-cache
 numpy
 matplotlib
 scipy
+scikit-learn
