@@ -1,5 +1,4 @@
-import matplotlib as mpl
-from matplotlib import pyplot as plt
+from pylab import plot, show
 
 
 level = 0
@@ -25,8 +24,8 @@ def tracer(func):
 
 
 def draw():
-    plt.plot(trail)
-    plt.show()
+    plot(trail)
+    show()
 
 
 def move(from_, to):

@@ -1,10 +1,9 @@
-import matplotlib as mpl
-from matplotlib import pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 x = np.arange(-0.5, 1.5, .01)
-plt.plot(x, x**2, '--', x, np.sqrt(x), range(3), range(3), ':o')
+plt.plot(x, x**2, '--', x[x>=0], np.sqrt(x[x>=0]), range(3), range(3), ':o')
 plt.grid(True)
 plt.xlabel('Here is the X axis')
 plt.ylabel('This is the Y axis')
