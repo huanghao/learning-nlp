@@ -13,6 +13,7 @@ def compute(texts):
         for word in text:
             score[word][i] += 1
     words = score.keys()
+    print len(words)
 
     # normalize: tf
     M = np.array(score.values())

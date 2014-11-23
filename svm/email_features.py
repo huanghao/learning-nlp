@@ -14,6 +14,7 @@ import cPickle
 
 import numpy as np
 
+from process_email import preprocess
 from make_vocab import walk_emails
 
 
@@ -28,7 +29,7 @@ def load_vocab(fname):
 
 def extract_feature(text, vocab):
     feature = np.zeros(len(vocab))
-    for word in text.split():
+    for word in preprocess(text):
         tid = vocab.get(word, None)
         if tid is not None:
             feature[tid-1] = 1

@@ -43,6 +43,6 @@ def preprocess(text):
 
 
 if __name__ == '__main__':
-    for word in preprocess(open(sys.argv[1]).read()):
+    for word in preprocess(open(sys.argv[1]).read().decode('utf8', 'ignore')):
         print word,
     print
