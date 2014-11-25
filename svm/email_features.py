@@ -5,14 +5,15 @@ INFO:root:X: (4327, 1566) -> X.pkl
 INFO:root:y: (4327,) -> y.pkl
 
 $ ls -lh *.pkl
--rw-r--r--  1 huanghao  staff   206M Nov 22 20:35 X.pkl
--rw-r--r--  1 huanghao  staff   4.4K Nov 22 20:35 y.pkl
+-rw-r--r--  1 huanghao  staff    18M Nov 25 08:43 X.pkl
+-rw-r--r--  1 huanghao  staff   4.4K Nov 25 08:43 y.pkl
 """
 import sys
 import logging
 import cPickle
 
 import numpy as np
+from scipy.sparse import csr_matrix
 
 from process_email import preprocess
 from make_vocab import walk_emails
@@ -43,7 +44,7 @@ def build_data(top, vocab_fname):
         logging.debug('processing %s ..', fname)
         f = extract_feature(content, vocab)
         features.append(f)
-    return np.vstack(features)
+    return csr_matrix(np.vstack(features))
 
 
 def build_target(label_fname):

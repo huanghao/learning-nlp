@@ -53,7 +53,8 @@ def predict(args):
     vocab = load_vocab(args.vocabulary)
     for email in args.emails:
         with open(email) as file:
-            feature = extract_feature(file.read(), vocab)
+            text = file.read().decode('utf8', 'ignore')
+            feature = extract_feature(text, vocab)
         print email, m.predict(feature)
 
 
